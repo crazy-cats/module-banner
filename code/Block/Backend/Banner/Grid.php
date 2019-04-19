@@ -5,8 +5,9 @@
  * See COPYRIGHT.txt for license details.
  */
 
-namespace CrazyCat\Banner\Block\Backend\Menu;
+namespace CrazyCat\Banner\Block\Backend\Banner;
 
+use CrazyCat\Banner\Model\Source\Group as SourceGroup;
 use CrazyCat\Core\Model\Source\Stage as SourceStage;
 use CrazyCat\Core\Model\Source\YesNo as SourceYesNo;
 
@@ -28,12 +29,12 @@ class Grid extends \CrazyCat\Core\Block\Backend\AbstractGrid {
         return [
                 [ 'ids' => true, ],
                 [ 'name' => 'id', 'label' => __( 'ID' ), 'sort' => true, 'width' => 100, 'filter' => [ 'type' => 'text', 'condition' => 'eq' ] ],
-                [ 'name' => 'name', 'label' => __( 'Menu Name' ), 'sort' => true, 'filter' => [ 'type' => 'text', 'condition' => 'like' ] ],
+                [ 'name' => 'name', 'label' => __( 'Banner Name' ), 'sort' => true, 'filter' => [ 'type' => 'text', 'condition' => 'like' ] ],
                 [ 'name' => 'identifier', 'label' => __( 'Identifier' ), 'sort' => true, 'filter' => [ 'type' => 'text', 'condition' => 'like' ] ],
+                [ 'name' => 'group_id', 'label' => __( 'Banner Group' ), 'sort' => true, 'width' => 200, 'filter' => [ 'type' => 'select', 'source' => SourceGroup::class, 'condition' => 'eq' ] ],
                 [ 'name' => 'stage_ids', 'label' => __( 'Stages' ), 'sort' => true, 'width' => 200, 'filter' => [ 'type' => 'select', 'source' => SourceStage::class, 'condition' => 'finset' ] ],
                 [ 'name' => 'enabled', 'label' => __( 'Enabled' ), 'sort' => true, 'width' => 130, 'filter' => [ 'type' => 'select', 'source' => SourceYesNo::class, 'condition' => 'eq' ] ],
                 [ 'label' => __( 'Actions' ), 'actions' => [
-                        [ 'name' => 'redirect', 'label' => __( 'Menu Items' ), 'url' => getUrl( 'banner/banner_item/index' ), 'params' => [ 'mid' => ':id' ] ],
                         [ 'name' => 'edit', 'label' => __( 'Edit' ), 'url' => getUrl( 'banner/banner/edit' ) ],
                         [ 'name' => 'delete', 'label' => __( 'Delete' ), 'confirm' => __( 'Sure you want to remove this item?' ), 'url' => getUrl( 'banner/banner/delete' ) ]
                 ] ] ];

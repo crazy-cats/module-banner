@@ -12,9 +12,20 @@
  * @link http://crazy-cat.co
  */
 return [
-    'banner/group/index' => [
+    'banner' => [
         'label' => 'Banners',
-        'url' => 'banner/group/index',
-        'sort_order' => 130
+        'sort_order' => 130,
+        'children' => [
+            'banner/banner/index' => [
+                'label' => 'Banner List',
+                'url' => 'banner/banner/index',
+                'sort_order' => 10
+            ],
+            'banner/group/index' => [
+                'label' => 'Banner Groups',
+                'url' => 'banner/group/index',
+                'sort_order' => 20
+            ]
+        ]
     ]
 ];

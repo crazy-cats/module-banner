@@ -5,7 +5,7 @@
  * See COPYRIGHT.txt for license details.
  */
 
-namespace CrazyCat\Banner\Block\Backend\Menu;
+namespace CrazyCat\Banner\Block\Backend\Banner;
 
 use CrazyCat\Core\Model\Source\Stage as SourceStage;
 use CrazyCat\Core\Model\Source\YesNo as SourceYesNo;

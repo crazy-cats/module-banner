@@ -13,7 +13,7 @@ namespace CrazyCat\Banner\Model;
  * @author Bruce Z <152416319@qq.com>
  * @link http://crazy-cat.co
  */
-class Menu extends \CrazyCat\Framework\App\Module\Model\AbstractModel {
+class Banner extends \CrazyCat\Framework\App\Module\Model\AbstractModel {
 
     /**
      * @return void
