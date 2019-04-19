@@ -15,8 +15,8 @@ namespace CrazyCat\Banner\Model;
  */
 class Banner extends \CrazyCat\Framework\App\Module\Model\AbstractModel {
 
-    const TYPE_IMAGE = 'image';
-    const TYPE_VIDEO = 'video';
+    const TYPE_IMAGE = 1;
+    const TYPE_VIDEO = 2;
 
     /**
      * @return void

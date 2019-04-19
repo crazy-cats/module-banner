@@ -22,7 +22,7 @@ class Upgrade extends \CrazyCat\Framework\App\Module\Setup\AbstractUpgrade {
         $columns = [
                 [ 'name' => 'id', 'type' => MySql::COL_TYPE_INT, 'unsign' => true, 'null' => false, 'auto_increment' => true ],
                 [ 'name' => 'identifier', 'type' => MySql::COL_TYPE_VARCHAR, 'length' => 32, 'null' => false ],
-                [ 'name' => 'type', 'type' => MySql::COL_TYPE_INT, 'unsign' => true, 'null' => false ],
+                [ 'name' => 'type', 'type' => MySql::COL_TYPE_TINYINT, 'unsign' => true, 'null' => false ],
                 [ 'name' => 'target', 'type' => MySql::COL_TYPE_VARCHAR, 'length' => 8, 'null' => false ],
                 [ 'name' => 'group_id', 'type' => MySql::COL_TYPE_INT, 'unsign' => true, 'null' => false, 'default' => 0 ],
                 [ 'name' => 'enabled', 'type' => MySql::COL_TYPE_TINYINT, 'length' => 1, 'unsign' => true, 'null' => false, 'default' => 0 ],
