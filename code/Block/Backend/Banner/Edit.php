@@ -7,6 +7,8 @@
 
 namespace CrazyCat\Banner\Block\Backend\Banner;
 
+use CrazyCat\Banner\Model\Source\Target as SourceTarget;
+use CrazyCat\Banner\Model\Source\Type as SourceType;
 use CrazyCat\Core\Model\Source\Stage as SourceStage;
 use CrazyCat\Core\Model\Source\YesNo as SourceYesNo;
 
@@ -28,8 +30,12 @@ class Edit extends \CrazyCat\Core\Block\Backend\AbstractEdit {
                 'label' => __( 'General' ),
                 'fields' => [
                         [ 'name' => 'id', 'label' => __( 'ID' ), 'type' => 'hidden' ],
-                        [ 'name' => 'name', 'label' => __( 'Menu Name' ), 'type' => 'text', 'validation' => [ 'required' => true ] ],
+                        [ 'name' => 'name', 'label' => __( 'Banner Name' ), 'type' => 'text', 'validation' => [ 'required' => true ] ],
                         [ 'name' => 'identifier', 'label' => __( 'Identifier' ), 'type' => 'text', 'validation' => [ 'required' => true ] ],
+                        [ 'name' => 'type', 'label' => __( 'Banner Type' ), 'type' => 'select', 'source' => SourceType::class ],
+                        [ 'name' => 'url', 'label' => __( 'URL' ), 'type' => 'text' ],
+                        [ 'name' => 'target', 'label' => __( 'Target' ), 'type' => 'select', 'source' => SourceTarget::class ],
+                        [ 'name' => 'desc', 'label' => __( 'Description' ), 'type' => 'textarea' ],
                         [ 'name' => 'enabled', 'label' => __( 'Enabled' ), 'type' => 'select', 'source' => SourceYesNo::class ],
                         [ 'name' => 'stage_ids', 'label' => __( 'Stage' ), 'type' => 'multiselect', 'source' => SourceStage::class ]
                 ]

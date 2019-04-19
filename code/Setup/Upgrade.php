@@ -21,8 +21,9 @@ class Upgrade extends \CrazyCat\Framework\App\Module\Setup\AbstractUpgrade {
     {
         $columns = [
                 [ 'name' => 'id', 'type' => MySql::COL_TYPE_INT, 'unsign' => true, 'null' => false, 'auto_increment' => true ],
-                [ 'name' => 'name', 'type' => MySql::COL_TYPE_VARCHAR, 'length' => 255, 'null' => false ],
                 [ 'name' => 'identifier', 'type' => MySql::COL_TYPE_VARCHAR, 'length' => 32, 'null' => false ],
+                [ 'name' => 'type', 'type' => MySql::COL_TYPE_INT, 'unsign' => true, 'null' => false ],
+                [ 'name' => 'target', 'type' => MySql::COL_TYPE_VARCHAR, 'length' => 8, 'null' => false ],
                 [ 'name' => 'group_id', 'type' => MySql::COL_TYPE_INT, 'unsign' => true, 'null' => false, 'default' => 0 ],
                 [ 'name' => 'enabled', 'type' => MySql::COL_TYPE_TINYINT, 'length' => 1, 'unsign' => true, 'null' => false, 'default' => 0 ],
                 [ 'name' => 'stage_ids', 'type' => MySql::COL_TYPE_VARCHAR, 'length' => 32, 'null' => false, 'default' => '0' ],
@@ -43,10 +44,8 @@ class Upgrade extends \CrazyCat\Framework\App\Module\Setup\AbstractUpgrade {
                 [ 'name' => 'id', 'type' => MySql::COL_TYPE_INT, 'unsign' => true, 'null' => false ],
                 [ 'name' => 'lang', 'type' => MySql::COL_TYPE_VARCHAR, 'length' => 8, 'null' => false ],
                 [ 'name' => 'name', 'type' => MySql::COL_TYPE_VARCHAR, 'length' => 256, 'null' => false ],
-                [ 'name' => 'type', 'type' => MySql::COL_TYPE_INT, 'unsign' => true, 'null' => false ],
                 [ 'name' => 'content', 'type' => MySql::COL_TYPE_VARCHAR, 'length' => 256, 'null' => false ],
                 [ 'name' => 'url', 'type' => MySql::COL_TYPE_VARCHAR, 'length' => 256 ],
-                [ 'name' => 'target', 'type' => MySql::COL_TYPE_VARCHAR, 'length' => 8, 'null' => false ],
                 [ 'name' => 'desc', 'type' => MySql::COL_TYPE_TEXT ]
         ];
         $indexes = [
@@ -72,6 +71,15 @@ class Upgrade extends \CrazyCat\Framework\App\Module\Setup\AbstractUpgrade {
         $this->conn->createTable( 'banner_group', $columns, $indexes );
     }
 
+    private function createDefaultBannerGroup()
+    {
+        $this->conn->insert( 'banner_group', [
+            'name' => 'Default',
+            'identifier' => 'default',
+            'enabled' => '1',
+            'stage_ids' => '0' ] );
+    }
+
     /**
      * @param string|null $currentVersion
      */
@@ -81,6 +89,7 @@ class Upgrade extends \CrazyCat\Framework\App\Module\Setup\AbstractUpgrade {
             $this->createBannerMainTable();
             $this->createBannerLangTable();
             $this->createBannerGroupMainTable();
+            $this->createDefaultBannerGroup();
         }
     }
 
