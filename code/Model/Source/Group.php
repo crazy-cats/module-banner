@@ -8,21 +8,20 @@
 namespace CrazyCat\Banner\Model\Source;
 
 use CrazyCat\Banner\Model\Group\Collection as GroupCollection;
-use CrazyCat\Framework\App\ObjectManager;
 
 /**
  * @category CrazyCat
- * @package CrazyCat\Banner
- * @author Bruce Z <152416319@qq.com>
- * @link http://crazy-cat.co
+ * @package  CrazyCat\Banner
+ * @author   Liwei Zeng <zengliwei@163.com>
+ * @link     https://crazy-cat.cn
  */
-class Group extends \CrazyCat\Framework\App\Module\Model\Source\AbstractSource {
-
-    public function __construct( ObjectManager $objectManager )
-    {
-        foreach ( $objectManager->create( GroupCollection::class ) as $group ) {
-            $this->sourceData[sprintf( '%s ( ID: %d )', $group->getData( 'name' ), $group->getId() )] = $group->getId();
+class Group extends \CrazyCat\Framework\App\Component\Module\Model\Source\AbstractSource
+{
+    public function __construct(
+        \CrazyCat\Framework\App\ObjectManager $objectManager
+    ) {
+        foreach ($objectManager->create(GroupCollection::class) as $group) {
+            $this->sourceData[sprintf('%s ( ID: %d )', $group->getData('name'), $group->getId())] = $group->getId();
         }
     }
-
 }

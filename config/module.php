@@ -1,21 +1,25 @@
 <?php
 
 /*
- * Copyright © 2019 CrazyCat, Inc. All rights reserved.
+ * Copyright © 2020 CrazyCat, Inc. All rights reserved.
  * See COPYRIGHT.txt for license details.
  */
 
 /**
  * @category CrazyCat
- * @package CrazyCat\Banner
- * @author Bruce Z <152416319@qq.com>
- * @link http://crazy-cat.co
+ * @package  CrazyCat\Banner
+ * @author   Liwei Zeng <zengliwei@163.com>
+ * @link     https://crazy-cat.cn
  */
 return [
     'namespace' => 'CrazyCat\Banner',
-    'version' => '1.0.0',
-    'depends' => [],
-    'routes' => [
+    'depends'   => [
+        'CrazyCat\Base'
+    ],
+    'routes'    => [
         'backend' => 'banner'
+    ],
+    'setup'     => [
+        'CrazyCat\Banner\Setup\Install'
     ]
 ];

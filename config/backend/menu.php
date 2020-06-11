@@ -1,29 +1,29 @@
 <?php
 
 /*
- * Copyright © 2019 CrazyCat, Inc. All rights reserved.
+ * Copyright © 2020 CrazyCat, Inc. All rights reserved.
  * See COPYRIGHT.txt for license details.
  */
 
 /**
  * @category CrazyCat
- * @package CrazyCat\Banner
- * @author Bruce Z <152416319@qq.com>
- * @link http://crazy-cat.co
+ * @package  CrazyCat\Banner
+ * @author   Liwei Zeng <zengliwei@163.com>
+ * @link     https://crazy-cat.cn
  */
 return [
     'banner' => [
-        'label' => 'Banners',
+        'label'      => 'Banners',
         'sort_order' => 130,
-        'children' => [
+        'children'   => [
             'banner/banner/index' => [
-                'label' => 'Banner List',
-                'url' => 'banner/banner/index',
+                'label'      => 'Banner List',
+                'url'        => 'banner/banner/index',
                 'sort_order' => 10
             ],
-            'banner/group/index' => [
-                'label' => 'Banner Groups',
-                'url' => 'banner/group/index',
+            'banner/group/index'  => [
+                'label'      => 'Banner Groups',
+                'url'        => 'banner/group/index',
                 'sort_order' => 20
             ]
         ]
