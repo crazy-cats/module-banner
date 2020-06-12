@@ -13,10 +13,12 @@ namespace CrazyCat\Banner\Model;
  * @author   Liwei Zeng <zengliwei@163.com>
  * @link     https://crazy-cat.cn
  */
-class Banner extends \CrazyCat\Framework\App\Component\Module\Model\AbstractModel
+class Banner extends \CrazyCat\Base\Model\AbstractLangModel
 {
     public const TYPE_IMAGE = 1;
     public const TYPE_VIDEO = 2;
+
+    public const MEDIA_FOLDER = 'banner';
 
     /**
      * @return void

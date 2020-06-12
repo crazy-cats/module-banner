@@ -7,6 +7,8 @@
 
 namespace CrazyCat\Banner\Block\Backend\Banner;
 
+use CrazyCat\Banner\Model\Banner as Model;
+use CrazyCat\Banner\Model\Source\Group as SourceGroup;
 use CrazyCat\Banner\Model\Source\Target as SourceTarget;
 use CrazyCat\Banner\Model\Source\Type as SourceType;
 use CrazyCat\Base\Model\Source\Stage as SourceStage;
@@ -52,6 +54,18 @@ class Edit extends \CrazyCat\Base\Block\Backend\AbstractEdit
                         'label'  => __('Banner Type'),
                         'type'   => 'select',
                         'source' => SourceType::class
+                    ],
+                    [
+                        'name'         => 'content',
+                        'label'        => __('File'),
+                        'type'         => 'image',
+                        'media_folder' => Model::MEDIA_FOLDER
+                    ],
+                    [
+                        'name'   => 'group_id',
+                        'label'  => __('Group'),
+                        'type'   => 'select',
+                        'source' => SourceGroup::class
                     ],
                     [
                         'name'  => 'url',

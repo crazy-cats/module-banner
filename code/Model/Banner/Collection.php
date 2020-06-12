@@ -16,7 +16,7 @@ use CrazyCat\Framework\App\Area;
  * @author   Liwei Zeng <zengliwei@163.com>
  * @link     https://crazy-cat.cn
  */
-class Collection extends \CrazyCat\Framework\App\Component\Module\Model\AbstractCollection
+class Collection extends \CrazyCat\Base\Model\AbstractLangCollection
 {
     /**
      * @return void
@@ -24,7 +24,7 @@ class Collection extends \CrazyCat\Framework\App\Component\Module\Model\Abstract
      */
     protected function construct()
     {
-        $this->init('CrazyCat\Banner\Model\Banner');
+        $this->init(\CrazyCat\Banner\Model\Banner::class);
     }
 
     /**

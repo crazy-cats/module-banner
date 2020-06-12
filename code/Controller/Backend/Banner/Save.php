@@ -16,7 +16,7 @@ use CrazyCat\Framework\App\Io\Http\Url;
  * @author   Liwei Zeng <zengliwei@163.com>
  * @link     https://crazy-cat.cn
  */
-class Save extends \CrazyCat\Framework\App\Component\Module\Controller\Backend\AbstractAction
+class Save extends \CrazyCat\Base\Controller\Backend\AbstractSaveAction
 {
     protected function execute()
     {
@@ -27,6 +27,8 @@ class Save extends \CrazyCat\Framework\App\Component\Module\Controller\Backend\A
         if (empty($data[$model->getIdFieldName()])) {
             unset($data[$model->getIdFieldName()]);
         }
+
+        $this->processFile('content', Model::MEDIA_FOLDER, $data);
 
         try {
             $id = $model->addData($data)->save()->getId();
