@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "CrazyCat\\Customer\\": "code/"
+            "CrazyCat\\Banner\\": "code/"
         },
         "files": [
             "registration.php"
