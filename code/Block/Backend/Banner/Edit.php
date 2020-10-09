@@ -63,7 +63,7 @@ class Edit extends \CrazyCat\Base\Block\Backend\AbstractEdit
                     ],
                     [
                         'name'   => 'group_id',
-                        'label'  => __('Group'),
+                        'label'  => __('Banner Group'),
                         'type'   => 'select',
                         'source' => SourceGroup::class
                     ],
